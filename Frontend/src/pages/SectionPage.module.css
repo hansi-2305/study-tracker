@@ -1,0 +1,218 @@
+.page { display: flex; flex-direction: column; gap: 24px; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.headerLeft { display: flex; align-items: flex-start; gap: 16px; }
+
+.emoji { font-size: 40px; line-height: 1; margin-top: 4px; }
+
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+.accent {
+  height: 2px;
+  border-radius: 2px;
+  opacity: 0.4;
+  margin-top: -12px;
+  width: 60px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+
+.searchBar:focus-within { border-color: var(--c); }
+
+.searchIcon { font-size: 18px; color: var(--text-muted); }
+
+.searchInput {
+  background: none;
+  border: none;
+  padding: 12px 0;
+  flex: 1;
+  font-size: 14px;
+}
+
+.searchInput:focus { box-shadow: none; }
+
+.clearBtn {
+  background: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.clearBtn:hover { color: var(--text); }
+
+.meta { display: flex; align-items: center; gap: 8px; }
+.metaCount { font-size: 12px; color: var(--text-muted); }
+.metaSearch { font-size: 12px; color: var(--accent2); }
+
+.notes { display: flex; flex-direction: column; gap: 12px; }
+
+.loading { text-align: center; color: var(--text-muted); padding: 40px; }
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg2);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+}
+
+.emptyEmoji { font-size: 48px; }
+.emptyText { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: var(--text); }
+.emptyHint { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+
+.noteCard {
+  position: relative;
+  background: var(--bg2);
+  border: 1px solid var(--cbr, var(--border));
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease both;
+}
+
+.noteCard:hover {
+  border-color: var(--c);
+  transform: translateX(4px);
+  box-shadow: -4px 0 0 var(--c), 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.noteGlow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--c);
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 12px 0 0 12px;
+}
+
+.noteCard:hover .noteGlow { opacity: 1; }
+
+.noteHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+
+.noteDate { font-size: 11px; color: var(--text-muted); }
+
+.noteTags { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.noteTag {
+  font-size: 10px;
+  color: var(--c);
+  background: var(--cb);
+  border: 1px solid var(--cbr);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.noteTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.notePreview {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.noteActions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionBtn {
+  background: none;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+
+.actionBtn:hover {
+  color: var(--text);
+  border-color: var(--border-bright);
+  background: var(--bg3);
+}
+
+.actionDelete:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: rgba(247,106,124,0.1);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.pageNums { display: flex; gap: 6px; }
+
+.pageBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: none;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  transition: all 0.15s;
+}
+
+.pageBtn:hover { border-color: var(--border-bright); color: var(--text); }
+
+.pageBtnActive {
+  background: var(--bg3);
+  font-weight: 700;
+}

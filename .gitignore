@@ -1,0 +1,6 @@
+# Create .gitignore in your project root
+echo "node_modules/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo ".env" >> .gitignore
+echo "notes_data.json" >> .gitignore

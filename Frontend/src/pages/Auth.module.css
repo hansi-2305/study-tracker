@@ -1,0 +1,93 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.4s ease;
+}
+
+.logo {
+  font-size: 36px;
+  color: var(--accent);
+  text-align: center;
+  filter: drop-shadow(0 0 10px var(--accent));
+  margin-bottom: 4px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: -8px;
+}
+
+.error {
+  background: rgba(247,106,124,0.1);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  padding: 13px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.switch a {
+  color: var(--accent);
+  text-decoration: underline;
+}
