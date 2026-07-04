@@ -207,6 +207,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 import uuid
 from motor.motor_asyncio import AsyncIOMotorClient
+import bcrypt
 
 # MONGO_URL    = "mongodb://localhost:27017"
 # DB_NAME      = "studytracker"
@@ -270,8 +271,23 @@ class NoteUpdate(BaseModel):
     content: Optional[str] = None
     tags:    Optional[List[str]] = None
 
-def hash_password(p): return pwd_context.hash(p)
-def verify_password(plain, hashed): return pwd_context.verify(plain, hashed)
+# def hash_password(p): 
+#     return pwd_context.hash(p.encode("utf-8"))
+#     # return pwd_context.hash(p)
+# def verify_password(plain, hashed): return pwd_context.verify(plain, hashed)
+
+
+def hash_password(password: str) -> str:
+    # Convert string to bytes, generate salt, hash, and convert back to string for MongoDB storage
+    pwd_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(pwd_bytes, salt)
+    return hashed_password.decode('utf-8')
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    # Used later in your login endpoint
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
+
 
 def create_token(data):
     to_encode = data.copy()
