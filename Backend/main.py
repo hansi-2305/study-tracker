@@ -207,10 +207,18 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 import uuid
 from motor.motor_asyncio import AsyncIOMotorClient
+import os
 
-MONGO_URL    = "mongodb://localhost:27017"
+# MONGO_URL    = "mongodb://localhost:27017"
+# DB_NAME      = "studytracker"
+# SECRET_KEY   = "studytracker_secret_key_change_in_production"
+
+
+
+MONGO_URL    = os.getenv("MONGO_URL", "mongodb://localhost:27017")
 DB_NAME      = "studytracker"
-SECRET_KEY   = "studytracker_secret_key_change_in_production"
+SECRET_KEY   = os.getenv("SECRET_KEY", "studytracker_secret_key_change_in_production")
+
 ALGORITHM    = "HS256"
 TOKEN_EXPIRE = 30
 
@@ -229,16 +237,16 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
 app = FastAPI(title="Study Tracker API")
 
 # Explicitly list permissible frontend origins to comply with credential requirements
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:5174",
-    "http://127.0.0.1:5174"
-]
+# origins = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+#     "http://localhost:5174",
+#     "http://127.0.0.1:5174"
+# ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
